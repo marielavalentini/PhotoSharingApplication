@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Globalization;
 using PhotoSharingApplication.Models;
 using PhotoSharingApplication.Data;
+using System.Runtime.Remoting.Contexts;
 
 namespace PhotoSharingApplication.Controllers
 {
@@ -14,6 +15,7 @@ namespace PhotoSharingApplication.Controllers
         private PhotoSharingDBContext context = new PhotoSharingDBContext();
 
         // GET: Photo
+
         public ActionResult Index()
         {
             //return View("Index", context.Photos.ToList());
