@@ -9,27 +9,32 @@
     <title>_PhotoGallery</title>
 </head>
 <body>
-    <div>
+    <div class="photo-index-card">
         @foreach (var item in Model)
         {
             <h3>"@item.Title"</h3>
             if (item.PhotoFile != null)
             {
-                <img width="200" src="@Url.Action("GetImage","Photo",new { id = item.PhotoID })" />
-
+                <img class="photo-index-card-img" src="@Url.Action("GetImage","Photo",new { id = item.PhotoID })" />
             }
 
-            <p>
+            <span class="display-label">
                 Created By:
+            </span>
+
+            <span class="display-field">
                 @Html.DisplayFor(model => item.UserName)
-            </p>
+            </span>
 
-            <p>
+            <span class="display-label">
                 Created On:
+            </span>
+            <span class="display-field">
                 @Html.DisplayFor(model => item.CreatedDate)
-            </p>
+            </span>
 
-            @Html.ActionLink("Display", "Display",new { id = item.PhotoID })
+
+            @Html.ActionLink("Display", "Display", new { id = item.PhotoID })
 
         }
     </div>
